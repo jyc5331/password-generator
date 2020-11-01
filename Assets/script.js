@@ -1,5 +1,5 @@
 // Assignment code here
-//HELP these things aren't quite functioning 
+//HELP these things aren't quite functioning, if I add a bracket, they highlight, but then nothing else works
 function generatePassword() {
   var alpha = "abcdefghijklmnopqrstuvwxyz";
   var caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -14,7 +14,7 @@ function generatePassword() {
 
 //end of generatePassword
 
-// Write password to the #password input
+// Write password to the #password input HELP get a function loop going in here
 function writePassword() {
   console.log("hello");
   //Lowercase characters
@@ -67,9 +67,13 @@ function getPasswordLength() {
   }
 } //HELP does this need a ";"?
 
+//HELP window.alert that takes passwordLength + selectedCharacters and generates the actual password
+
 // Add event listener to generate button
 // document.body.addEventListener("click", writePassword);
 // Get references to the #generate element
+
+//HELP should I delete the commented out document line? 
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
-document.getElementById("myBtn").addEventListener("click", writePassword);
+//document.getElementById("myBtn").addEventListener("click", writePassword);
