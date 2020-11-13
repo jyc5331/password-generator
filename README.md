@@ -4,4 +4,6 @@ This repository contains a site that will generate a random password for the use
 
 The URL can be found at: https://jyc5331.github.io/password-generator/
 
-![](Assets/generator screenshot.png)
+
+
+![generator-screenshot](Assets/generator-screenshot.png)
