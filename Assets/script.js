@@ -5,32 +5,32 @@ var caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numeric = "0123456789";
 var special = "!$^&*-=+_?";
 
-var selectedCharacters = "";
-var password = "";
-
 
 
 //end of generatePassword
 
 //getting password length
 function getPasswordLength() {
-  var length = window.prompt(
+  var passwordLength = window.prompt(
     "How many characters will your password contain? Please enter a number between 8 and 128."
   );
-  if (length < 8) {
+  //HELP something, maybe While? for if length=0 || length=null then call function getPasswordLength
+  if (passwordLength < 8) {
     window.alert("Please enter a numeric value greater than 7");
+    getPasswordLength ();
   }
-  if (length > 128) {
+  else if (passwordLength > 128) {
     window.alert("Please enter a numeric value lesser than 128");
+    getPasswordLength ();
   } else {
-    return getPasswordLength;
+    return passwordLength = passwordLength;
   }
 }
+// console.log (passwordLength); HELP why is this not working?
 
 // Write password to the #password input HELP get a function loop going in here
 function writePassword() {
-  var passwordLength = getPasswordLength();
-  console.log("hello");
+  var selectedCharacters = "";
   //Lowercase characters
   var includeAlpha = window.confirm("Click OK to include lowercase letters");
   if (includeAlpha) {
@@ -57,27 +57,28 @@ function writePassword() {
   if (includeSpecial) {
     selectedCharacters += special;
   }
-  console.log("includesSelectedCharacters");
+  return selectedCharacters;
   //var response = generatePassword;
 }
 
 //end of write password
 
 // generate password and window alert
-function generatePassword (length) {
+
+function generatePassword () {
+  var length = getPasswordLength ();
+  var selectedCharacters = writePassword ();
   var password = ""
 for(var i = 0; i < length; i++) {
-  password = password + selectedCharacters.charAt(Math.floor(Math.random() * selectedCharacters.passwordLength));
-  alert (password);
+  password = password + selectedCharacters.charAt(Math.floor(Math.random() * selectedCharacters.length));
 }
-  return password;
+alert (password);
 };
 
 
+
 // Add event listener to generate button
-// document.body.addEventListener("click", writePassword);
-// Get references to the #generate element
-
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
+// window.alert(password); HELP this doesn't actually return any values and runs first?
